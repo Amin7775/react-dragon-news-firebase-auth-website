@@ -7,7 +7,9 @@ const Home = () => {
     return (
         <div className="container mx-auto">
             <Header></Header>
+            <div className="mt-2">
             <Navbar></Navbar>
+            </div>
             this is home
 
             {/* container */}
