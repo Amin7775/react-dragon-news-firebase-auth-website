@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
-import defaultImg from './../../../assets/user.png'
+import defaultImg from "./../../../assets/user.png";
 
 const Navbar = () => {
   const links = (
@@ -18,7 +18,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 container mx-auto">
+    <div className="navbar bg-transparent container mx-auto py-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,25 +48,28 @@ const Navbar = () => {
         <a className=""></a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-[#706F6F] text-lg font-medium" id="sidebar">
+        <ul
+          className="menu menu-horizontal px-1 text-[#706F6F] text-lg font-medium"
+          id="sidebar"
+        >
           {links}
         </ul>
       </div>
       <div className="navbar-end space-x-2">
-        
         <div
           tabIndex={0}
           role="button"
           className="btn btn-ghost btn-circle avatar"
         >
           <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS Navbar component"
-              src={defaultImg}
-            />
+            <img alt="Tailwind CSS Navbar component" src={defaultImg} />
           </div>
         </div>
-        <a className="btn bg-[#403F3F] hover:bg-[#403F3F]/[.85] text-white px-12 rounded-none ">Login</a>
+        <Link to={"/login"}>
+          <p className="btn bg-[#403F3F] hover:bg-[#403F3F]/[.85] text-white px-12 rounded-none ">
+            Login
+          </p>
+        </Link>
       </div>
     </div>
   );
