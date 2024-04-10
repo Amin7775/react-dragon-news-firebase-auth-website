@@ -1,8 +1,12 @@
+import FindUsOn from "./RightSections/FindUsOn";
+import LoginWIth from "./RightSections/LoginWIth";
 
 const RightSideNav = () => {
     return (
         <div>
-            Right
+            
+            <LoginWIth></LoginWIth>
+            <FindUsOn></FindUsOn>
         </div>
     );
 };

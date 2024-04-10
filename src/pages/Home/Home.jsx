@@ -10,7 +10,6 @@ const Home = () => {
             <div className="mt-2">
             <Navbar></Navbar>
             </div>
-            this is home
 
             {/* container */}
             <div className="grid grid-cols-4 gap-6">
