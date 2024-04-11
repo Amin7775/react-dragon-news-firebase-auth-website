@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Shared/Navbar/Navbar";
-
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Register = () => {
-    const handleSubmit = e =>{
-        e.preventDefault()
-        // const form = new FormData(e.currentTarget)
-        console.log("yo")
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const name = e.target.name.value;
-        const photoURL = e.target.photoURL.value;
-    }
+  const { user, createUser} = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const form = new FormData(e.currentTarget)
+    console.log("yo");
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const name = e.target.name.value;
+    const photoURL = e.target.photoURL.value;
+
+    // create a new user
+    createUser(name,photoURL,email,password)
+    .then(result => {
+      console.log(result.user)
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  };
 
   return (
     <div className="bg-[#F3F3F3] min-h-screen">
@@ -29,9 +41,7 @@ const Register = () => {
           <form className="w-[600px]" onSubmit={handleSubmit}>
             {/* Name */}
             <label className="label">
-              <span className="label-text text-lg font-semibold">
-                Name
-              </span>
+              <span className="label-text text-lg font-semibold">Name</span>
             </label>
             <input
               type="text"
@@ -86,7 +96,12 @@ const Register = () => {
               </button>
             </div>
           </form>
-          <p className="mt-5">Already have an account ? <Link className="text-red-600" to={'/login'}>Login</Link></p>
+          <p className="mt-5">
+            Already have an account ?{" "}
+            <Link className="text-red-600" to={"/login"}>
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </div>
