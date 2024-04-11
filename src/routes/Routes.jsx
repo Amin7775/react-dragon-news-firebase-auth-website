@@ -7,6 +7,7 @@ import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/career',
-                element:<Career></Career>
+                element:<PrivateRoute><Career></Career></PrivateRoute>
             },
             {
                 path:'/login',
